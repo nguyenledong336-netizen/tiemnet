@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8DE21A5B-1B14-4CB3-A0F4-3BFC9A27726A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyTiemNet</RootNamespace>
+    <AssemblyName>QuanLyTiemNet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Entity Models -->
+    <Compile Include="Entity\Models\CaLamViec.cs" />
+    <Compile Include="Entity\Models\ChamCong.cs" />
+    <Compile Include="Entity\Models\ChiTietDichVu.cs" />
+    <Compile Include="Entity\Models\CurrentUser.cs" />
+    <Compile Include="Entity\Models\DichVu.cs" />
+    <Compile Include="Entity\Models\HoaDon.cs" />
+    <Compile Include="Entity\Models\KhachHang.cs" />
+    <Compile Include="Entity\Models\LichLamViec.cs" />
+    <Compile Include="Entity\Models\MayTinh.cs" />
+    <Compile Include="Entity\Models\NhanVien.cs" />
+    <Compile Include="Entity\Models\PhienSuDung.cs" />
+    <Compile Include="Entity\Models\TaiKhoan.cs" />
+
+    <!-- DAL Interfaces -->
+    <Compile Include="DAL\Interfaces\ICaLamViecDAL.cs" />
+    <Compile Include="DAL\Interfaces\IChamCongDAL.cs" />
+    <Compile Include="DAL\Interfaces\IChiTietDichVuDAL.cs" />
+    <Compile Include="DAL\Interfaces\IDichVuDAL.cs" />
+    <Compile Include="DAL\Interfaces\IHoaDonDAL.cs" />
+    <Compile Include="DAL\Interfaces\IKhachHangDAL.cs" />
+    <Compile Include="DAL\Interfaces\ILichLamViecDAL.cs" />
+    <Compile Include="DAL\Interfaces\IMayTinhDAL.cs" />
+    <Compile Include="DAL\Interfaces\INhanVienDAL.cs" />
+    <Compile Include="DAL\Interfaces\IPhienSuDungDAL.cs" />
+    <Compile Include="DAL\Interfaces\ITaiKhoanDAL.cs" />
+
+    <!-- DAL DataAccess -->
+    <Compile Include="DAL\DataAccess\CaLamViecDAL.cs" />
+    <Compile Include="DAL\DataAccess\ChamCongDAL.cs" />
+    <Compile Include="DAL\DataAccess\ChiTietDichVuDAL.cs" />
+    <Compile Include="DAL\DataAccess\DBConnection.cs" />
+    <Compile Include="DAL\DataAccess\DichVuDAL.cs" />
+    <Compile Include="DAL\DataAccess\HoaDonDAL.cs" />
+    <Compile Include="DAL\DataAccess\KhachHangDAL.cs" />
+    <Compile Include="DAL\DataAccess\LichLamViecDAL.cs" />
+    <Compile Include="DAL\DataAccess\MayTinhDAL.cs" />
+    <Compile Include="DAL\DataAccess\NhanVienDAL.cs" />
+    <Compile Include="DAL\DataAccess\PhienSuDungDAL.cs" />
+    <Compile Include="DAL\DataAccess\TaiKhoanDAL.cs" />
+
+    <!-- GUI UserControls -->
+    <Compile Include="GUI\UserControls\ucMayTinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\ucMayTinh.Designer.cs">
+      <DependentUpon>ucMayTinh.cs</DependentUpon>
+    </Compile>
+
+    <!-- GUI Forms -->
+    <Compile Include="GUI\Forms\frmChamCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmChamCong.Designer.cs">
+      <DependentUpon>frmChamCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmHoaDon.Designer.cs">
+      <DependentUpon>frmHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmLichLamViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmLichLamViec.Designer.cs">
+      <DependentUpon>frmLichLamViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmLichSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmLichSu.Designer.cs">
+      <DependentUpon>frmLichSu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyCa.Designer.cs">
+      <DependentUpon>frmQuanLyCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyDichVu.Designer.cs">
+      <DependentUpon>frmQuanLyDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyKhachHang.Designer.cs">
+      <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyMay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyMay.Designer.cs">
+      <DependentUpon>frmQuanLyMay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmQuanLyNhanVien.Designer.cs">
+      <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmThanhToan.Designer.cs">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmThongKe.Designer.cs">
+      <DependentUpon>frmThongKe.cs</DependentUpon>
+    </Compile>
+
+    <!-- Program & Assembly -->
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Database\QuanLyTiemNet.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
